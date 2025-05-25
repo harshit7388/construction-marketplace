@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const MongoDB_URI = process.env.MONGODB_URI!;
+const MongoDB_URI = process.env.NEXT_PUBLIC_MONGODB_URI!;
 
 if (!MongoDB_URI) {
   throw new Error(
@@ -15,6 +15,7 @@ if (!cached) {
 }
 
 export async function ConnectToDB() {
+  console.log("DB :", MongoDB_URI);
   if (cached.conn) {
     return cached.conn;
   }
